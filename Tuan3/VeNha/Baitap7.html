@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baitap7</title>
+    <style>
+      * { 
+        box-sizing: border-box; 
+      }
+      #wrapper {
+        width: 350px;
+        margin: 0 auto;
+        padding: 10px;
+        font-family: sans-serif;
+      }
+      .boder {
+        border: 3px solid #000;
+        padding: 10px; 
+      }
+      .border, header, nav, main, footer {
+        border: 3px solid #000;
+        padding: 10px;         
+      }
+      header, footer{
+        clear: both;
+        height: 40px; 
+      }
+      nav {
+        float: left;
+        width: 75px;
+        height: 300px;
+        margin: 10px 10px 10px 0;    
+      }
+      main {
+        float: left;
+        width: calc(100% - 85px);
+        height: 300px;
+        margin: 10px 0 10px 0;  
+      }
+    </style>
+</head>
+<body>
+  <div id="wrapper">
+    <p style="margin: 10px;">wrapper</p>
+      <div class="boder">
+        <header>header</header>
+        <nav>nav</nav>
+        <main>main</main>
+        <footer>footer</footer>
+    </div>
+  </div>  
+</body>
+</html>

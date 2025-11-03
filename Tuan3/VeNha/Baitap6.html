@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baitap6</title>
+    <style>
+        .portfolio {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px 0; 
+        }
+        .portfolio h2 {
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            margin: 10px;            
+        }
+        .portfolio h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: #00a79d;
+            margin: 10px auto;
+        }
+        .list-tab {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 50px; 
+        }
+        .list-tab li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .list-tab a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .list-tab li:first-child a {
+            color: #00a79d;
+        }
+        .galerry {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 10px 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .galerry img {
+            width: 100%;
+            display: block;
+            border-radius: 5px;
+        }  
+    </style>
+</head>
+<body bgcolor="#f3f3f3">
+<section class="portfolio">
+    <h2>MY PORTFOLIO</h2>
+    <ul class="list-tab">
+        <li><a href="./">All</a></li>
+        <li><a href="./">Web App</a></li>
+        <li><a href="./">UI/UX</a></li>
+        <li><a href="./">Graphics Design</a></li>
+        <li><a href="./">Mobile App</a></li>
+        <li><a href="./">Branding</a></li>
+        <li><a href="./">Marketing</a></li>
+    </ul>
+    <ul class="galerry">
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+        <li><a href="./"><img src="https://hocwebchuan.com/exercises/images/img_350x260.png" alt=""></a></li>
+    </ul>
+</section>
+</body>
+</html>
