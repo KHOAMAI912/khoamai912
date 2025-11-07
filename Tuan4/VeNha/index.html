@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        .button {
+        all: unset;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        position: relative;
+        border-radius: 100em;
+        background-color: rgba(0, 0, 0, 0.75);
+        box-shadow:
+            -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+            0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
+        }
+
+        .button::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        width: calc(100% + 0.3em);
+        height: calc(100% + 0.3em);
+        top: -0.15em;
+        left: -0.15em;
+        border-radius: inherit;
+        background: linear-gradient(
+            -135deg,
+            rgba(5, 5, 5, 0.5),
+            transparent 20%,
+            transparent 100%
+        );
+        filter: blur(0.0125em);
+        opacity: 0.25;
+        mix-blend-mode: multiply;
+        }
+
+        .button .button-outer {
+        position: relative;
+        z-index: 1;
+        border-radius: inherit;
+        transition: box-shadow 300ms ease;
+        will-change: box-shadow;
+        box-shadow:
+            0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+            0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+            0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+        }
+
+        .button:hover .button-outer {
+        box-shadow:
+            0 0 0 0 rgba(5, 5, 5, 1),
+            0 0 0 0 rgba(5, 5, 5, 0.5),
+            0 0 0 0 rgba(5, 5, 5, 0.25);
+        }
+
+        .button-inner {
+        --inset: 0.035em;
+        position: relative;
+        z-index: 1;
+        border-radius: inherit;
+        padding: 1em 1.5em;
+        background-image: linear-gradient(
+            135deg,
+            rgba(230, 230, 230, 1),
+            rgba(180, 180, 180, 1)
+        );
+        transition:
+            box-shadow 300ms ease,
+            clip-path 250ms ease,
+            background-image 250ms ease,
+            transform 250ms ease;
+        will-change: box-shadow, clip-path, background-image, transform;
+        overflow: clip;
+        clip-path: inset(0 0 0 0 round 100em);
+        box-shadow:
+                /* 1 */
+            0 0 0 0 inset rgba(5, 5, 5, 0.1),
+            /* 2 */ -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+            /* 3 */ 0 0 0 0 inset rgba(5, 5, 5, 0.1),
+            /* 4 */ 0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+            /* 5 */ 0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+            /* 6 */ 0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+            /* 7 */ -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+        }
+
+        .button:hover .button-inner {
+        clip-path: inset(
+            clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px)
+            clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em
+        );
+        box-shadow:
+                /* 1 */
+            0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+            /* 2 */ -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+            /* 3 */ 0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+            /* 4 */ 0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+            /* 5 */ 0 0 0 0 inset rgba(255, 255, 255, 1),
+            /* 6 */ 0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+            /* 7 */ -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+        }
+
+        .button .button-inner span {
+        position: relative;
+        z-index: 4;
+        font-family: "Inter", sans-serif;
+        letter-spacing: -0.05em;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0);
+        background-image: linear-gradient(
+            135deg,
+            rgba(25, 25, 25, 1),
+            rgba(75, 75, 75, 1)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        transition: transform 250ms ease;
+        display: block;
+        will-change: transform;
+        text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        }
+
+        .button:hover .button-inner span {
+        transform: scale(0.975);
+        }
+
+        .button:active .button-inner {
+        transform: scale(0.975);
+        }
+        .custom-btn {
+        width: 130px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+        font-size: 15px;
+        }
+
+        .btn-2 {
+        background: antiquewhite;
+        border: none;
+        }
+
+        .btn-2:before {
+        height: 0%;
+        width: 2px;
+        }
+
+        .btn-2:hover {
+        box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+                    -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+            inset -4px -4px 6px 0 rgba(255,255,255,.2),
+            inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        body{
+            text-align: center;
+            background-image: url(https://bcp.cdnchinhphu.vn/334894974524682240/2025/8/21/dai-hoc-kinh-te-3-175574700801075654665.jpg);
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Họ và tên: Mai Yến Khoa</h1>
+    <h1>MSSV: 31231023460</h1>
+    <h1><button class="custom-btn btn-2"><a href="https://www.facebook.com/mai.yen.khoa.2025/">Facebook</a></button></h1>
+    <button class="button">
+    <div class="button-outer">
+        <div class="button-inner">
+        <span><a href="Baitap1.html">Bài tập 1</a></span>
+        </div>
+    </div>
+    </button>
+    <button class="button">
+    <div class="button-outer">
+        <div class="button-inner">
+        <span><a href="Baitap2a.html">Bài tập 2a</a></span>
+        </div>
+    </div>
+    </button>
+    <button class="button">
+    <div class="button-outer">
+        <div class="button-inner">
+        <span><a href="Baitap2b.html">Bài tập 2b</a></span>
+        </div>
+    </div>
+    </button>
+    <button class="button">
+    <div class="button-outer">
+        <div class="button-inner">
+        <span><a href="Baitap2c.html">Bài tập 2c</a></span>
+        </div>
+    </div>
+    </button> 
+    <button class="button">
+    <div class="button-outer">
+        <div class="button-inner">
+        <span><a href="Baitap3.html">Bài tập 3</a></span>
+        </div>
+    </div>
+    </button>  
+</body>
+</html>
